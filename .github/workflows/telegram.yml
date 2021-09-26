@@ -32,4 +32,4 @@ jobs:
           token: ${{ secrets.TELEGRAM_TOKEN }}
           message: |
             From message - the ${{ github.event_name }} event triggered final step.
-            ${{ GITHUB_REF }}
+            $GITHUB_REF
