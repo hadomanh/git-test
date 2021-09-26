@@ -30,7 +30,6 @@ jobs:
         with:
           to: ${{ secrets.TELEGRAM_TO }}
           token: ${{ secrets.TELEGRAM_TOKEN }}
-          args: From args - the ${{ github.event_name }} event triggered first step.
           message: |
             From message - the ${{ github.event_name }} event triggered final step.
             echo This event is a pull request that had an assignee removed.
