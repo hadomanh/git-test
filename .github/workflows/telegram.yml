@@ -27,6 +27,7 @@ jobs:
           message: |
             [${{ github.event.sender.login }}](${{ github.event.sender.html_url }}) pushed new commit to master.
             Cheers 🍻 
+          disable_web_page_preview: true
 
       - name: Pull Request Notification
         if: ${{ github.event_name == 'pull_request' && github.event.pull_request.merged == false }}
