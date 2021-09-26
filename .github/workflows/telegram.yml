@@ -18,17 +18,14 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: Merged Notification
-#         if: ${{ github.event_name == 'pull_request' && github.event.action == 'closed' && github.event.pull_request.merged == true }}
+        if: ${{ github.event_name == 'push' }}
         uses: appleboy/telegram-action@master
         with:
           to: ${{ secrets.TELEGRAM_TO }}
           token: ${{ secrets.TELEGRAM_TOKEN }}
           format: markdown
           message: |
-            [Pull Request #${{ github.event.number }}](${{ github.event.pull_request.html_url }}) successfully merged and closed.
-            ${{ github.event_name }}
-            ${{ github.event.pull_request.merged }}
-            ${{ github.event.action == '' }}
+            [ ${{ github.event.sender.login }} ]( ${{ github.event.sender.html_url }} ) pushed new commit to master
             Cheers 🍻 
 
       - name: Pull Request Notification
