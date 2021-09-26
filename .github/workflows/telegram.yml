@@ -28,7 +28,7 @@ jobs:
             [Pull Request #${{ github.event.number }}](${{ github.event.pull_request.html_url }}) successfully merged and closed.
             ${{ github.event_name }}
             ${{ github.event.pull_request.merged }}
-            ${{ github.event.action }}
+            ${{ github.event.action == undefined }}
             Cheers 🍻 
 
       - name: Pull Request Notification
