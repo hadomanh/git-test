@@ -4,6 +4,9 @@ on:
   pull_request:
     branches: [ master ]
 
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -24,6 +27,7 @@ jobs:
             Cheers 🍻 
 
       - name: Pull Request Notification
+        if: github.event_name == 'pull_request' && github.event.pull_request.merged == false
         uses: appleboy/telegram-action@master
         with:
           to: ${{ secrets.TELEGRAM_TO }}
