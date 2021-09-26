@@ -15,13 +15,25 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
 
-      - name: Pull Request Notification
+      - name: Merged Notification
+        if: ${{ github.event_name == 'pull_request' && github.event.action == 'closed' && github.event.pull_request.merged == true }}
         uses: appleboy/telegram-action@master
         with:
           to: ${{ secrets.TELEGRAM_TO }}
           token: ${{ secrets.TELEGRAM_TOKEN }}
           format: markdown
           message: |
-            [Pull Request #${{ github.event.number }}](${{ github.event.pull_request.url }}) ready.
+            [Pull Request #${{ github.event.number }}](${{ github.event.pull_request.html_url }}) successfully merged and closed.
+            Cheers 🍻 
+
+      - name: Pull Request Notification
+        if: ${{ github.event_name == 'pull_request' && github.event.pull_request.merged == false }}
+        uses: appleboy/telegram-action@master
+        with:
+          to: ${{ secrets.TELEGRAM_TO }}
+          token: ${{ secrets.TELEGRAM_TOKEN }}
+          format: markdown
+          message: |
+            [Pull Request #${{ github.event.number }}](${{ github.event.pull_request.html_url }}) ready.
             Good luck ⭐️ 
             
