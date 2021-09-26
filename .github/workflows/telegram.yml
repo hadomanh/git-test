@@ -33,6 +33,5 @@ jobs:
           format: markdown
           message: |
             From message - the ${{ github.event_name }} event triggered final step.
-            ${{ github.ref }}
-            ${{ github.event_path }}
-            ${{ github.event.number }}
+            [Pull Request] (https://github.com/${{ github.repository }}/pull/${{ github.event.number }})
+            
