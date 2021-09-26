@@ -34,4 +34,4 @@ jobs:
           message: |
             From message - the ${{ github.event_name }} event triggered final step.
             ${{ github.ref }}
-            ${{ github.event_path_name }}
+            ${{ github.event_path }}
