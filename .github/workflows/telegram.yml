@@ -39,5 +39,6 @@ jobs:
           message: |
             [Pull Request #${{ github.event.number }}](${{ github.event.pull_request.html_url }}) ready.
             Labels: ${{ toJson(github.event.pull_request.labels.*.name) }}
+            Requested reviewers: ${{ toJson(github.event.pull_request.requested_reviewers) }}
             Good luck ⭐️ 
             
