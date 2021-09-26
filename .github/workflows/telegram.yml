@@ -38,5 +38,4 @@ jobs:
             Good luck ⭐️ 
             > Title: ${{ github.event.pull_request.title }}
             > Author: [${{ github.event.pull_request.user.login }}](${{ github.event.pull_request.user.html_url }})
-            > Label: ${{ toJson(github.event.pull_request.labels.*.name) }}
             
