@@ -25,7 +25,7 @@ jobs:
           token: ${{ secrets.TELEGRAM_TOKEN }}
           format: markdown
           message: |
-            [${{ github.event.sender.login }}]( ${{ github.event.sender.html_url }} ) pushed new commit to master
+            [${{ github.event.sender.login }}](${{ github.event.sender.html_url }}) pushed new commit to master.
             Cheers 🍻 
 
       - name: Pull Request Notification
