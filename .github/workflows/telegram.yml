@@ -24,6 +24,4 @@ jobs:
           message: |
             [Pull Request #${{ github.event.number }}](${{ github.event.pull_request.url }}) ready.
             Good luck ⭐️ 
-            > Title: ${{ github.event.pull_request.title }}
-            > Author: [${{ github.event.pull_request.user.login }}](${{ github.event.pull_request.user.html_url }})
             
